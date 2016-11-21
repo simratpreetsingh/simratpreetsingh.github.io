@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor</title>
+    <link type='text/css' rel='stylesheet' href='./css/index.css'>
+    <link type='text/css' rel='stylesheet' href='./css/tooltip.css'>
+    <link type='text/css' rel='stylesheet' href='./css/preview.css'>
+    <link type='text/css' rel='stylesheet' href='./css/bootstrap.min.css'>
+    <script src='./jquery/dist/jquery.min.js'></script>
+</head>
+<body>
+<div id="loading">Please Wait</div>
+<div id="instructions">
+<center>
+    <div id="instructionsHeader"><kbd><span>Instructions</span></kbd></div>
+    <hr>
+    <div class="panel panel-default">
+        <div class="panel-body">Each <code>Enter</code> creates a <code>new paragraph</code>.</div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">Select some text using mouse, keyboard or double click on a word and a <code>tooltip</code> will show up.</div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">To rearrange the paragraphs, click on Done button and just <code>drag the paragraphs</code>.</div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">Links can be created using <code>anchor tags</code>.These links will be displayed on clicking Done Button in <code>alternating red and blue colors</code>.</div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">To replace all the four letter words present, click the <code>replace button</code> in the navigation bar.To distinguish the replaced words you can hover over them and their background color changes.</div>
+    </div>
+     <div class="panel panel-default">
+         <div class="panel-body">The <code>content is saved</code> as the user types and will be available even after reload.To clear the editor Clear Button in the navigation bar can be used.</div>
+    </div>
+</center>
+</div>
+<nav class="navbar navbar-default">
+    <div class='navbar-header'>
+        <a class='navbar-brand' href='#'>Editor</a>
+    </div>
+    <button id="clearEditor" class='btn btn-danger pull-right' onclick="sessionStorage.clear();location.reload();">Clear Editor</button>
+    <button id="previewButton" class='btn btn-success pull-right' onclick='preview()'>Preview</button>
+    <button id="backToEditor" class='btn btn-primary pull-right' onclick='location.reload()'>Back To Editor</button>
+    <button id="replace" class='btn btn-warning pull-right' onclick='convert()'>Replace digits with length 4</button>
+    <button id="instructionButton" class='btn btn-info pull-right' onclick='instructions()'>Instructions</button>
+    <button id="hideInstructionButton" class='btn btn-info pull-right' onclick='hideInstructions()'>Hide Instructions</button>
+</nav>
+<br><br>
+<center>
+    <div id='tooltip'>
+       <button class='element bold' onclick='apply("bold",null)'></button>
+       <button class='element underline' onclick='apply("underline",null)'></button>
+       <button class='element italics' onclick='apply("italic",null)'></button>
+       <button class='element fontColor' onclick='if(document.queryCommandValue("foreColor")=="rgb(99, 99, 99)"){apply("foreColor","#D80027");} else{apply("foreColor","#636363");}'></button>
+    </div>
+    <div id='inputText'>
+        <div class='title' contenteditable='true' data-placeholder="Give your story a Title"></div>
+        <div class='content' contenteditable='true' data-placeholder='Tell your tale....'></div>
+    </div>
+</center>
+<button class='btn btn-primary' id="done" onclick='done()'>Done</button>
+<button class='btn btn-warning' id="edit" onclick='location.reload()'>Back To Edit Mode</button>
+<center>
+   <div id="displayText">
+       <hr>
+       <div id="linksText">Links</div>
+       <div id="links"></div>
+   </div>
+</center>
+<center>
+    <div id="preview">
+        <div id="previewText">Preview</div>
+        <hr>
+        <div id="previewTitle">container</div>
+        <div id="previewContent">conteiner</div>
+    </div>
+</center>
+<script src='./javascript/index.js'></script>
+<script src='./javascript/tooltip.js'></script>
+<script src='./javascript/preview.js'></script>
+<script src='./javascript/replaceWords.js'></script>
+</body>
+</html>

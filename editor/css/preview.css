@@ -1,0 +1,43 @@
+#displayText {
+    width:90%;
+}
+
+#linksText {
+    font-weight:bold;
+    font-size:20px;
+    text-align: left;
+}
+
+#links {
+    text-align: left;
+}
+
+#preview {
+    width:90%;
+    text-align: left;
+    display: none;
+}
+
+#previewText {
+    font-size:24px;
+    font-weight:bold;
+    text-align: center;
+}
+
+#previewTitle {
+    font-size: 26px;
+    font-weight:bold;
+    font-family:Montserrat;
+}
+
+#previewContent {
+    font-size: 20px;
+    font-family:Robotto;
+    margin-top:20px;
+    color:#636363;
+}
+
+a,link,visited {
+    color:inherit;
+    font-size:18px;
+}
